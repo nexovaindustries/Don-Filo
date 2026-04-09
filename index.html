@@ -160,9 +160,9 @@
                 <a href="#ambiente" class="hover:text-white transition-colors">Ambiente</a>
                 <a href="#ubicacion" class="hover:text-white transition-colors">Encuéntranos</a>
             </div>
-            <button class="btn-neon font-headline font-bold text-sm px-6 py-2 rounded-full uppercase tracking-wide">
+            <a href="#menu" class="btn-neon font-headline font-bold text-sm px-6 py-2 rounded-full uppercase tracking-wide flex items-center justify-center">
                 Ver Menú
-            </button>
+            </a>
         </div>
     </nav>
 
@@ -187,10 +187,10 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 reveal" style="animation-delay: 300ms;">
-                        <button class="btn-neon font-headline font-bold px-8 py-4 rounded-full uppercase tracking-widest text-sm flex justify-center items-center gap-2">
+                        <a href="https://wa.me/51958114856" target="_blank" class="btn-neon font-headline font-bold px-8 py-4 rounded-full uppercase tracking-widest text-sm flex justify-center items-center gap-2">
                             Haz tu reserva
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -469,6 +469,16 @@
 
             document.querySelectorAll('.reveal, .reveal-scale').forEach((element) => {
                 observer.observe(element);
+            });
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
         
