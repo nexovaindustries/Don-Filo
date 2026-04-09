@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html class="dark" lang="es">
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Pasta Canteen — Tradición y Fuego | Arequipa</title>
-    <meta name="description" content="Pasta Canteen: donde la tradición volcánica de Arequipa se encuentra con el alma artesanal de Italia. Pasta fresca, horno de leña y pasión en cada plato." />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Don Filo — Calma Tu Filo</title>
+    <meta name="description" content="Don Filo: El mejor ambiente, hamburguesas y el refugio perfecto para pasarla bien." />
+    <!-- Fonts: Outfit for dynamic modern headings, Inter for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
@@ -13,685 +14,354 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "on-secondary-fixed": "#341100",
-                        "on-primary-container": "#ffdfdc",
-                        "surface-container-high": "#ebe8e3",
-                        "secondary-fixed-dim": "#fbb795",
-                        "inverse-primary": "#ffb4ac",
-                        "tertiary-fixed-dim": "#cdc5c0",
-                        "primary-fixed": "#ffdad6",
-                        "surface-container-low": "#f6f3ee",
-                        "surface-container": "#f0ede9",
-                        "on-tertiary-container": "#eee5e0",
-                        "tertiary": "#534e4b",
-                        "on-primary-fixed": "#410003",
-                        "on-error-container": "#93000a",
-                        "secondary": "#855236",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed": "#1e1b18",
-                        "outline-variant": "#e3beba",
-                        "on-secondary-fixed-variant": "#6a3b21",
-                        "inverse-on-surface": "#f3f0eb",
-                        "surface-dim": "#dcdad5",
-                        "primary": "#a20613",
-                        "background": "#fcf9f4",
-                        "tertiary-fixed": "#e9e1dc",
-                        "secondary-container": "#ffba97",
-                        "surface-tint": "#b81e20",
-                        "surface-bright": "#fcf9f4",
-                        "outline": "#8f706c",
-                        "on-primary": "#ffffff",
-                        "on-primary-fixed-variant": "#93000e",
-                        "on-secondary-container": "#7a482d",
-                        "on-secondary": "#ffffff",
-                        "on-surface": "#1c1c19",
-                        "surface": "#fcf9f4",
-                        "error-container": "#ffdad6",
-                        "surface-container-lowest": "#ffffff",
-                        "on-tertiary-fixed-variant": "#4b4642",
-                        "secondary-fixed": "#ffdbcb",
-                        "inverse-surface": "#31302d",
-                        "surface-variant": "#e5e2dd",
-                        "primary-fixed-dim": "#ffb4ac",
-                        "primary-container": "#c52828",
-                        "on-tertiary": "#ffffff",
-                        "surface-container-highest": "#e5e2dd",
-                        "on-error": "#ffffff",
-                        "on-surface-variant": "#5b403d",
-                        "on-background": "#1c1c19",
-                        "tertiary-container": "#6c6662"
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.125rem",
-                        lg: "0.25rem",
-                        xl: "0.5rem",
-                        full: "0.75rem"
-                    },
                     fontFamily: {
-                        headline: ["Newsreader", "serif"],
-                        body: ["Manrope", "sans-serif"],
-                        label: ["Manrope", "sans-serif"]
+                        headline: ["Outfit", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    colors: {
+                        background: "#0a0a0a",
+                        surface: "#121212",
+                        card: "#1a1a1a",
+                        primary: "#ff3b30", /* Neon Red */
+                        primaryGlow: "rgba(255, 59, 48, 0.5)",
+                        secondary: "#ff9500", /* Neon Orange */
+                        accent: "#00f0ff", /* Neon Blue accent */
+                    },
+                    backgroundImage: {
+                        'neon-gradient': 'linear-gradient(135deg, #ff3b30 0%, #ff9500 100%)',
                     }
                 },
             },
         }
     </script>
     <style>
-        /* ─── Base ─── */
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+        /* Base Dark Theme overrides */
         body {
-            font-family: 'Manrope', sans-serif;
-            background-color: #fcf9f4;
-            color: #1c1c19;
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
             overflow-x: hidden;
-        }
-        .font-serif { font-family: 'Newsreader', serif; }
-
-        /* ─── Loading Screen ─── */
-        #loader {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #fcf9f4;
-            transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
-                        visibility 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        #loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+            letter-spacing: -0.01em;
         }
 
-        /* Line that draws itself under the logo */
-        .loader-line {
-            width: 0;
-            height: 1px;
-            background: #a20613;
-            margin-top: 20px;
-            animation: drawLine 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.6s forwards;
-        }
-        @keyframes drawLine {
-            to { width: 120px; }
+        /* Nav Glassmorphism */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Letter-by-letter stagger */
-        .loader-letter {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(24px);
-            animation: letterIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        @keyframes letterIn {
-            to { opacity: 1; transform: translateY(0); }
+        /* Typography accents */
+        .text-gradient {
+            background: linear-gradient(135deg, #ff3b30 0%, #ff9500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* Subtitle fade */
-        .loader-sub {
-            opacity: 0;
-            animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.6s forwards;
+        /* Buttons & Hover Effects */
+        .btn-neon {
+            position: relative;
+            background: #ff3b30;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 59, 48, 0.4);
+            overflow: hidden;
         }
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
+        .btn-neon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(255, 59, 48, 0.7);
+        }
+        .btn-neon::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-neon:hover::after {
+            left: 100%;
         }
 
-        /* ─── Scroll-reveal animation ─── */
+        /* Smooth reveal animations */
         .reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-80px);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(80px);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
+        
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: scale(0.95);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .reveal-scale.visible {
             opacity: 1;
             transform: scale(1);
         }
 
-        /* ─── Nav animation ─── */
-        .nav-hidden { transform: translateY(-100%); }
-
-        /* ─── Hero text clip animation ─── */
-        .hero-text-line {
+        /* Gallery Cards */
+        .gallery-item {
+            border-radius: 1rem;
             overflow: hidden;
-        }
-        .hero-text-inner {
-            transform: translateY(110%);
-            transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .hero-text-inner.animate {
-            transform: translateY(0);
-        }
-
-        /* ─── Parallax helper ─── */
-        .parallax-img {
-            will-change: transform;
-            transition: transform 0.1s linear;
-        }
-
-        /* ─── Magnetic button ─── */
-        .magnetic-btn {
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                        box-shadow 0.3s ease;
-        }
-        .magnetic-btn:hover {
-            box-shadow: 0 12px 40px rgba(162, 6, 19, 0.35);
-        }
-
-        /* ─── Card tilt on hover ─── */
-        .tilt-card {
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                        box-shadow 0.4s ease;
-        }
-        .tilt-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ─── Gallery overlay reveal ─── */
-        .gallery-item .gallery-overlay {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ─── Counter animation helper ─── */
-        .counter { font-variant-numeric: tabular-nums; }
-
-        /* ─── Smooth scroll ─── */
-        html { scroll-behavior: smooth; }
-
-        /* ─── Star pulse ─── */
-        @keyframes starPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        .star-animate {
-            animation: starPulse 0.5s ease forwards;
-        }
-
-        /* ─── Floating tag bob ─── */
-        @keyframes floatBob {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-        .float-bob {
-            animation: floatBob 4s ease-in-out infinite;
-        }
-
-        /* ─── CTA shimmer ─── */
-        .shimmer-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-        .shimmer-btn:hover::before {
-            left: 100%;
-        }
-
-        /* ─── Footer link underline ─── */
-        .footer-link {
             position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        .footer-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px; left: 0;
-            width: 0; height: 1px;
-            background: #a20613;
-            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        .gallery-item img {
+            transition: transform 0.7s ease;
         }
-        .footer-link:hover::after {
-            width: 100%;
+        .gallery-item:hover img {
+            transform: scale(1.08);
         }
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 59, 48, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.1);
+        }
+
     </style>
 </head>
-<body class="bg-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
-
-    <!-- ═══════════ LOADING SCREEN ═══════════ -->
-    <div id="loader">
-        <div class="flex flex-col items-center">
-            <!-- Logo text with letter-stagger -->
-            <h1 class="text-5xl md:text-7xl font-serif italic text-primary tracking-tight" id="loader-title" aria-hidden="true"></h1>
-            <div class="loader-line"></div>
-            <p class="loader-sub text-xs font-body uppercase tracking-[0.35em] text-tertiary mt-6" style="transform: translateY(10px);">
-                Tradición &amp; Fuego
-            </p>
-        </div>
-    </div>
+<body class="selection:bg-primary selection:text-white">
 
     <!-- ═══════════ NAVIGATION ═══════════ -->
-    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-md shadow-xl shadow-zinc-900/5 transition-all duration-500" style="transform: translateY(-100%);">
-        <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-            <a href="#" class="text-2xl font-serif italic text-primary transition-transform duration-300 hover:scale-105">
-                Pasta Canteen
+    <nav id="main-nav" class="fixed top-0 w-full z-50 glass-nav transition-all duration-300 py-4 px-6 md:px-12">
+        <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-headline font-extrabold tracking-tighter text-white flex items-center gap-2">
+                <span class="text-primary">DON</span> FILO
             </a>
-            <div class="hidden md:flex gap-12 items-center">
-                <a id="nav-menu" class="text-primary font-semibold border-b-2 border-primary font-body text-sm tracking-wide" href="#menu">Menú</a>
-                <a id="nav-location" class="text-zinc-800 font-medium font-body text-sm tracking-wide hover:text-primary transition-colors duration-300" href="#ubicacion">Ubicación</a>
-                <a id="nav-about" class="text-zinc-800 font-medium font-body text-sm tracking-wide hover:text-primary transition-colors duration-300" href="#nosotros">Nosotros</a>
+            <div class="hidden md:flex gap-8 items-center font-medium text-sm text-zinc-300">
+                <a href="#menu" class="hover:text-white transition-colors">La Carta</a>
+                <a href="#ambiente" class="hover:text-white transition-colors">Ambiente</a>
+                <a href="#ubicacion" class="hover:text-white transition-colors">Encuéntranos</a>
             </div>
-            <button id="btn-reservar-nav" class="magnetic-btn shimmer-btn relative overflow-hidden bg-primary text-on-primary px-6 py-2.5 rounded-lg font-body text-sm font-semibold tracking-wide shadow-lg shadow-primary/20 hover:scale-95 transition-all duration-300">
-                Reservar Mesa
+            <button class="btn-neon font-headline font-bold text-sm px-6 py-2 rounded-full uppercase tracking-wide">
+                Ver Menú
             </button>
         </div>
     </nav>
 
-    <main class="pt-24 overflow-x-hidden">
+    <main class="pt-24 md:pt-32">
 
         <!-- ═══════════ HERO ═══════════ -->
-        <section id="hero" class="relative min-h-[921px] flex flex-col items-center justify-center px-6 mb-24">
-            <div class="grid lg:grid-cols-2 gap-12 max-w-screen-2xl mx-auto w-full items-center">
-                <div class="z-10 order-2 lg:order-1">
-                    <!-- Animated headline -->
-                    <h1 class="text-7xl md:text-9xl font-serif font-bold text-primary leading-[0.85] mb-8 tracking-tighter">
-                        <span class="hero-text-line block"><span class="hero-text-inner block" data-delay="0">La Herencia</span></span>
-                        <span class="hero-text-line block"><span class="hero-text-inner block italic font-normal" data-delay="150">del Fuego</span></span>
+        <section id="hero" class="relative px-6 mb-24 md:mb-40 max-w-screen-2xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
+                
+                <div class="z-10 order-2 lg:order-1 pt-8 md:pt-0">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-secondary mb-6 reveal">
+                        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        Arequipa's Finest
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-8xl font-headline font-extrabold leading-[0.9] mb-8 uppercase tracking-tight reveal" style="animation-delay: 100ms;">
+                        Calma tu <span class="text-gradient">Filo</span>
                     </h1>
 
-                    <p class="reveal text-xl md:text-2xl text-tertiary-container font-body max-w-xl leading-relaxed mb-10" data-delay="400">
-                        Donde la tradición volcánica de Arequipa se encuentra con el alma artesanal de Italia. Trigo duro, brasas y manos expertas.
+                    <p class="text-lg md:text-xl text-zinc-400 font-body max-w-lg mb-10 leading-relaxed reveal" style="animation-delay: 200ms;">
+                        El spot perfecto para disfrutar con amigos. Sabores intensos, ambiente inigualable y las luces que encienden la noche.
                     </p>
 
-                    <div class="reveal flex flex-col sm:flex-row gap-6" data-delay="600">
-                        <div class="flex items-center gap-2 text-primary">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="font-bold text-lg counter" id="rating-counter">0.0</span>
-                            <span class="text-tertiary text-sm">/ <span class="counter" id="reviews-counter">0</span>+ Reseñas</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-secondary">
-                            <span class="material-symbols-outlined">schedule</span>
-                            <span class="font-medium text-sm">Abierto hasta las 21:30</span>
-                        </div>
+                    <div class="flex flex-col sm:flex-row gap-4 reveal" style="animation-delay: 300ms;">
+                        <button class="btn-neon font-headline font-bold px-8 py-4 rounded-full uppercase tracking-widest text-sm flex justify-center items-center gap-2">
+                            Haz tu reserva
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="relative order-1 lg:order-2 reveal-right" data-delay="200">
-                    <div class="aspect-[4/5] w-full bg-surface-container-high rounded-sm overflow-hidden shadow-2xl">
-                        <img class="parallax-img w-full h-full object-cover" alt="Pasta artesanal cortada a mano en cocina rústica con luz suave matutina"
-                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuABd9lwJW2faC2kpFgI6xzBNSyd32mtSIaEBeCbPlAT39GzCggO9Auiyb-bxpTJJxjtjgFvYilp78xaHxzeEJZcupSJbohoCT_Ne3XL3e6oJLjcBr0jT9mLRb5eve6RAC7dR_TYh3oMQOAuBUprbxPDcy4GN6wxzpyxqbryxceo3NAs8zPL_-A8MD0MXYs46-PR8Ugl-uBanEp8ncq2KKetKVZsbIFC2os1LSlhj2FCXWFMzSXEh5yha-ZxAmURPSj7ubPcEJmDaHH0" />
-                    </div>
-                    <!-- Floating ingredient tag -->
-                    <div class="float-bob absolute -bottom-6 -left-6 bg-white/80 backdrop-blur-xl p-6 rounded-lg shadow-xl border border-white/20 hidden md:block">
-                        <span class="block text-primary font-serif italic text-lg mb-1">Materia Prima</span>
-                        <p class="text-xs font-body tracking-widest uppercase text-tertiary">Sémola de Trigo Duro &amp; Brasas</p>
+                <div class="relative order-1 lg:order-2 reveal-scale h-full min-h-[400px]">
+                    <div class="gallery-item w-full h-[500px] md:h-[700px] shadow-2xl shadow-primary/20">
+                        <!-- main hero image using img8 -->
+                        <img class="w-full h-full object-cover" alt="Interior Don Filo" src="assets/img8.jpeg" />
+                        <div class="absolute inset-0 gallery-overlay rounded-xl"></div>
+                        
+                        <!-- Floating graphic -->
+                        <div class="absolute bottom-8 left-8 md:-left-8 bg-black/60 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl animate-[floatBob_4s_ease-in-out_infinite]">
+                            <p class="text-white font-headline text-2xl font-bold mb-1">Save Water</p>
+                            <p class="text-secondary font-headline text-lg italic">Drink Beer.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════════ SOCIAL PROOF ═══════════ -->
-        <section id="nosotros" class="bg-surface-container-low py-32 mb-24 px-6">
-            <div class="max-w-screen-xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-20 reveal">
-                    <h2 class="text-4xl md:text-5xl font-serif text-on-surface mb-6">Amado por Arequipa</h2>
-                    <div class="h-1 w-0 bg-primary transition-all duration-1000 ease-out" id="proof-line"></div>
+        <!-- ═══════════ AMBIENCE / NEW IMAGES ═══════════ -->
+        <section id="ambiente" class="px-6 mb-32 max-w-screen-2xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-6xl font-headline font-bold uppercase tracking-tight mb-4 text-white">
+                    Nuestro <span class="text-primary">Espacio</span>
+                </h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto text-lg">Un diseño pensado para que disfrutes cada bocado rodeado de buena vibra, luces de neón y arte.</p>
+            </div>
+
+            <!-- Bento grid displaying the new images -->
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+                
+                <!-- Main Image - Mural -->
+                <div class="gallery-item md:col-span-2 md:row-span-2 group reveal">
+                    <img src="assets/img7.jpeg" alt="Mural botánico y luces cálidas" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 gallery-overlay flex flex-col justify-end p-8">
+                        <h3 class="font-headline font-bold text-3xl text-white mb-2">Arte & Luz</h3>
+                        <p class="text-zinc-300 font-medium">Rincones diseñados para el post perfecto.</p>
+                    </div>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-12">
-                    <!-- Review 1 -->
-                    <div class="tilt-card reveal bg-white p-10 shadow-sm border-b-4 border-primary/10" data-delay="0">
-                        <div class="flex gap-1 text-primary mb-6 star-group">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-lg font-serif italic text-on-surface mb-8">"La mejor pasta que he probado fuera de Italia. El toque del horno de leña es simplemente inigualable."</p>
-                        <div class="text-sm font-body tracking-widest uppercase text-tertiary">Sofía Valdivia</div>
+                <!-- Secondary 1 - Neon -->
+                <div class="gallery-item md:col-span-1 md:row-span-1 group reveal" style="animation-delay: 150ms;">
+                    <img src="assets/img1.jpeg" alt="Letrero de neón" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 gallery-overlay flex flex-col justify-end p-6">
+                        <h3 class="font-headline font-bold text-xl text-white">Vibras Nocturnas</h3>
                     </div>
-                    <!-- Review 2 -->
-                    <div class="tilt-card reveal bg-white p-10 shadow-sm border-b-4 border-primary/10 md:scale-105" data-delay="150">
-                        <div class="flex gap-1 text-primary mb-6 star-group">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-lg font-serif italic text-on-surface mb-8">"Un ambiente acogedor y un servicio impecable. Las 2,600 reseñas no mienten, es una joya en Calle Puente Grau."</p>
-                        <div class="text-sm font-body tracking-widest uppercase text-tertiary">Marco De Santis</div>
+                </div>
+
+                <!-- Secondary 2 - Digital Menu -->
+                <div class="gallery-item md:col-span-1 md:row-span-1 group reveal" style="animation-delay: 300ms;">
+                    <img src="assets/img12.jpeg" alt="Menú Digital Cholo Power" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 gallery-overlay flex flex-col justify-end p-6">
+                        <h3 class="font-headline font-bold text-xl text-white text-secondary">Atrévete a probarlo</h3>
                     </div>
-                    <!-- Review 3 -->
-                    <div class="tilt-card reveal bg-white p-10 shadow-sm border-b-4 border-primary/10" data-delay="300">
-                        <div class="flex gap-1 text-primary mb-6 star-group">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════ LA CARTA (EXAMPLE DISHES) ═══════════ -->
+        <section id="menu" class="bg-surface py-32 px-6">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="flex flex-col items-center text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight text-white mb-4">Platos <span class="text-gradient">Estrella</span></h2>
+                    <p class="text-zinc-400 max-w-xl text-lg">Ejemplos de lo que hace a nuestra mesa una experiencia obligatoria.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Food Item 1 -->
+                    <div class="glass-card p-6 reveal">
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6zA-tAclYBux7sH1DHDYGjJe6Rfu99LDn2rBonweckkUShGJtuxroyZUgOPEiXPHeVHBsMgFZfzsITS05gFQhnnJlNVD6OfU7-ofvSGk2buaHfip1yCQ8DPDZbHQqtikwL1uOEBvxXM-qtq46l4yRKVPe7w8YiM46mHgC2yjsbBZh3P0n5XheHFT7D3FIFDNIlaj5IejP9sdTDZLdfElZ5PQrtjqMnQrnqKLOncZXVoK7hrIhReCzQ071nbSBoAUt6JON5z9-zOmM" alt="Food ex 1" class="w-full h-full object-cover">
                         </div>
-                        <p class="text-lg font-serif italic text-on-surface mb-8">"Increíble relación calidad-precio. La textura de la pasta artesanal marca la diferencia totalmente."</p>
-                        <div class="text-sm font-body tracking-widest uppercase text-tertiary">Lucía Méndez</div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-headline font-bold text-xl text-white">Carbonara Especial</h3>
+                            <span class="text-primary font-bold">S/ 32</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm">Receta artesanal, un sabor clásico traído a la mesa moderna.</p>
+                    </div>
+
+                    <!-- Food Item 2 -->
+                    <div class="glass-card p-6 reveal" style="animation-delay: 150ms;">
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApCXM2OofsxhesVc4r8xwOyan5uR5pLxUVeIpl_DerqfsqJb4XzjkuVrbRPrA3BaQq2Gw3k5lgab5-whBOu45pWcFQKmIZV6Rra40lkqLummlg2rMdD0uwf0FULrUKRKZ5ZqfaZiFsliGCjLVFrHiLi9ZWjzuGqV5QdqsidEY4Gg-wiSzLcfAGSjylCyMIZAEyNIbGhqE7fM_l-BlTptI311mmh_LlCewZxz2vXD7lOFq8L2Gk9MeIYSzzR71sckC68eJo3NT-h6dL" alt="Food ex 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-headline font-bold text-xl text-white">Pizza de la Casa</h3>
+                            <span class="text-primary font-bold">S/ 45</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm">Horno de leña y la fusión perfecta de quesos fundidos.</p>
+                    </div>
+
+                    <!-- Food Item 3 -->
+                    <div class="glass-card p-6 reveal" style="animation-delay: 300ms;">
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYpjCApFAWGyVAGYlMvZp6KNsSvco20DXfHmXcjJc2TK8msvUY9OBSx76HdBo-cIjK4tQqR2llMIOIWNgY5j_FgDdBGjRtC8uaiScG6svZgHWZfVKfi_FEJ6hbVEcrrLN-BAZArrAJ0w0f3dMd1-fOPzOL3yqmgFV4LOMFmogOoIVYMlp2t6Ro3E4mfj81sL6w0Ni2ev6XbyWo46TYkCquT2FR3BawG-QHbU7NoaqzTW8b55K07dAZfhinprS-aIFOCzpPTptGklbe" alt="Food ex 3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-headline font-bold text-xl text-white">El Cholo Power</h3>
+                            <span class="text-primary font-bold">S/ 28</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm">Nuestro sándwich emblema, contundente y lleno de poder.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════════ EDITORIAL BENTO GALLERY ═══════════ -->
-        <section id="menu" class="max-w-screen-2xl mx-auto px-6 mb-32">
-            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
-
-                <div class="gallery-item reveal-scale md:col-span-2 md:row-span-2 relative group overflow-hidden bg-surface-container cursor-pointer" data-delay="0">
-                    <img class="parallax-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                         alt="Pasta carbonara con yema dorada y guanciale crujiente"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6zA-tAclYBux7sH1DHDYGjJe6Rfu99LDn2rBonweckkUShGJtuxroyZUgOPEiXPHeVHBsMgFZfzsITS05gFQhnnJlNVD6OfU7-ofvSGk2buaHfip1yCQ8DPDZbHQqtikwL1uOEBvxXM-qtq46l4yRKVPe7w8YiM46mHgC2yjsbBZh3P0n5XheHFT7D3FIFDNIlaj5IejP9sdTDZLdfElZ5PQrtjqMnQrnqKLOncZXVoK7hrIhReCzQ071nbSBoAUt6JON5z9-zOmM" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-                    <div class="gallery-overlay absolute bottom-8 left-8">
-                        <h3 class="text-white text-3xl font-serif mb-2">Pastas de la Casa</h3>
-                        <p class="text-white/80 font-body text-sm uppercase tracking-widest">Hechas a mano cada mañana</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item reveal-scale md:col-span-2 md:row-span-1 relative group overflow-hidden bg-surface-container cursor-pointer min-h-[250px]" data-delay="150">
-                    <img class="parallax-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                         alt="Pizza de masa madre al horno de leña con mozzarella burbujeante"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuApCXM2OofsxhesVc4r8xwOyan5uR5pLxUVeIpl_DerqfsqJb4XzjkuVrbRPrA3BaQq2Gw3k5lgab5-whBOu45pWcFQKmIZV6Rra40lkqLummlg2rMdD0uwf0FULrUKRKZ5ZqfaZiFsliGCjLVFrHiLi9ZWjzuGqV5QdqsidEY4Gg-wiSzLcfAGSjylCyMIZAEyNIbGhqE7fM_l-BlTptI311mmh_LlCewZxz2vXD7lOFq8L2Gk9MeIYSzzR71sckC68eJo3NT-h6dL" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-                    <div class="gallery-overlay absolute bottom-8 left-8">
-                        <h3 class="text-white text-2xl font-serif mb-1">El Horno de Leña</h3>
-                        <p class="text-white/80 font-body text-xs uppercase tracking-widest">Fuego y Tradición</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item reveal-scale md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container cursor-pointer min-h-[250px]" data-delay="300">
-                    <img class="parallax-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                         alt="Risotto de hongos con aceite de trufa y parmesano"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYpjCApFAWGyVAGYlMvZp6KNsSvco20DXfHmXcjJc2TK8msvUY9OBSx76HdBo-cIjK4tQqR2llMIOIWNgY5j_FgDdBGjRtC8uaiScG6svZgHWZfVKfi_FEJ6hbVEcrrLN-BAZArrAJ0w0f3dMd1-fOPzOL3yqmgFV4LOMFmogOoIVYMlp2t6Ro3E4mfj81sL6w0Ni2ev6XbyWo46TYkCquT2FR3BawG-QHbU7NoaqzTW8b55K07dAZfhinprS-aIFOCzpPTptGklbe" />
-                </div>
-
-                <div class="gallery-item reveal-scale md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container cursor-pointer min-h-[250px]" data-delay="450">
-                    <img class="parallax-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                         alt="Copa de vino tinto italiano con aperitivos en trattoria"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSi09VxNFhapiCO9ukzLOqTCvKxDFZ_W4CpTH_KnIZgFdvMJUpTxTUS9awM3U030IX8BJeKKJHAgAue6Eyd4U_xY31uzEfLnAa3J9K6tclqBpz1rm7tmmBOaXmMTiwEZJ7gJWiEPQL4hlnXKJQWYhghLqg7OOLnrrsC2XiB9Dgrz9f1h1nVnoMLFw1R629YMjxABBzcJe5Aibv2QkYAsem68x4P876Y-mIMnwqtIBzlgcZqUJM_PrFZh348YYtSI4xX1ZtLcEWuLlr" />
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════ LOCATION & CONTACT ═══════════ -->
-        <section id="ubicacion" class="max-w-screen-xl mx-auto px-6 mb-32">
-            <div class="reveal-scale bg-surface-container-lowest grid lg:grid-cols-2 overflow-hidden shadow-xl rounded-sm">
-                <div class="p-12 md:p-20 flex flex-col justify-center">
-                    <h2 class="reveal-left text-5xl font-serif mb-10 text-primary italic">Visítanos</h2>
-                    <div class="space-y-8">
-                        <div class="reveal flex gap-6 items-start" data-delay="100">
-                            <span class="material-symbols-outlined text-primary mt-1">location_on</span>
-                            <div>
-                                <p class="font-body font-bold text-lg mb-1">Calle Puente Grau 300</p>
-                                <p class="text-tertiary">Centro Histórico, Arequipa, Perú</p>
-                            </div>
-                        </div>
-                        <div class="reveal flex gap-6 items-start" data-delay="200">
-                            <span class="material-symbols-outlined text-primary mt-1">call</span>
-                            <div>
-                                <p class="font-body font-bold text-lg mb-1">+51 938 807 852</p>
-                                <p class="text-tertiary">Reservas y consultas</p>
-                            </div>
-                        </div>
-                        <div class="reveal flex gap-6 items-start" data-delay="300">
-                            <span class="material-symbols-outlined text-primary mt-1">history</span>
-                            <div>
-                                <p class="font-body font-bold text-lg mb-1">Horario de Atención</p>
-                                <p class="text-tertiary">Lunes a Domingo: 12:00 - 21:30</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="h-[400px] lg:h-auto bg-zinc-200 overflow-hidden">
-                    <img class="parallax-img w-full h-full object-cover grayscale opacity-80 transition-all duration-700 hover:grayscale-0 hover:opacity-100"
-                         alt="Mapa estilizado de la ubicación en Calle Puente Grau, centro histórico de Arequipa"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNDjaZ2ds6ezUMDcssinxKKzGzU0niCMocS3nAXkGVqfpHjBvpbnKsnarxbp9RM4u3o6757IUhc4xRzNZCTngmLshERTA6eFWrtTeSBSiB-FjnqbWQSb0VW82jUA0_-QirTZXT6wnw3hsJtXH_tWzzN3M-kD_j7MITXI-k8oCc-hHT5U4t0ba2IzP4i69zAm7aeSy_oTjIM2hm1nYiVkDC1mOZl-igKqhQ8xkBhoJKvhUe3w8HEC_zBjVq1XvBl-a8LZddmPbP6s2j" />
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- ═══════════ FOOTER ═══════════ -->
-    <footer class="bg-[#fcf9f4] w-full py-12 px-8 border-t border-zinc-200/10">
-        <div class="reveal flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-            <div class="font-serif text-3xl text-zinc-900">
-                Pasta Canteen
+    <footer class="bg-black py-16 px-6 border-t border-white/5">
+        <div class="max-w-screen-2xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <a href="#" class="text-3xl font-headline font-black tracking-tighter text-white mb-4 block">
+                    <span class="text-primary">DON</span> FILO
+                </a>
+                <p class="text-zinc-500 text-sm max-w-xs mx-auto md:mx-0">
+                    Sabor rudo, ambiente sofisticado. Todo lo que buscas para matar el hambre en la ciudad.
+                </p>
             </div>
-            <div class="text-center font-body uppercase tracking-widest text-[10px] text-zinc-500 leading-relaxed max-w-md">
-                © 2024 Pasta Canteen Arequipa. Tradición y Fuego. <br /> Calle Puente Grau 300 | +51 938 807 852
+            <div class="text-zinc-400 flex flex-col gap-2">
+                <h4 class="text-white font-headline font-bold mb-2 uppercase tracking-widest text-sm">Conócenos</h4>
+                <a href="#" class="hover:text-primary transition-colors text-sm">Nuestra Historia</a>
+                <a href="#menu" class="hover:text-primary transition-colors text-sm">La Carta</a>
+                <a href="#" class="hover:text-primary transition-colors text-sm">Reservas</a>
             </div>
-            <div class="flex gap-8">
-                <a class="footer-link text-zinc-500 hover:text-primary transition-all font-body uppercase tracking-widest text-xs" href="#">Privacidad</a>
-                <a class="footer-link text-zinc-500 hover:text-primary transition-all font-body uppercase tracking-widest text-xs" href="#">Contacto</a>
-                <a class="footer-link text-zinc-500 hover:text-primary transition-all font-body uppercase tracking-widest text-xs" href="#">Instagram</a>
+            <div class="text-zinc-400 flex flex-col gap-2">
+                <h4 class="text-white font-headline font-bold mb-2 uppercase tracking-widest text-sm">Encuéntranos</h4>
+                <span class="text-sm">Av. Las Leyendas 123 (Ejemplo)</span>
+                <span class="text-sm">+51 987 654 321</span>
+                <div class="flex justify-center md:justify-start gap-4 mt-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white">
+                        IG
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white">
+                        FB
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="max-w-screen-2xl mx-auto mt-16 pt-8 border-t border-white/5 text-center text-zinc-600 text-xs">
+            © 2026 Don Filo. Todos los derechos reservados.
         </div>
     </footer>
 
-    <!-- ═══════════ JAVASCRIPT ═══════════ -->
+    <!-- ═══════════ SCRIPTS ═══════════ -->
     <script>
-    (function () {
-        'use strict';
+        // Simple Intersection Observer setup for reveal animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-        /* ── 1. LOADING SCREEN ── */
-        const loaderTitle = document.getElementById('loader-title');
-        const text = 'Pasta Canteen';
-        // Create letter spans with stagger
-        text.split('').forEach((char, i) => {
-            const span = document.createElement('span');
-            span.className = 'loader-letter';
-            span.style.animationDelay = `${0.08 + i * 0.06}s`;
-            span.textContent = char === ' ' ? '\u00A0' : char;
-            loaderTitle.appendChild(span);
-        });
-
-        // Hide loader after animation
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-                document.body.style.overflow = '';
-                // After loader hides → trigger hero animations
-                setTimeout(initHeroAnimations, 300);
-            }, 2800);
-        });
-        // Prevent scroll during loading
-        document.body.style.overflow = 'hidden';
-
-        /* ── 2. HERO TEXT REVEAL ── */
-        function initHeroAnimations() {
-            const heroInners = document.querySelectorAll('.hero-text-inner');
-            heroInners.forEach(el => {
-                const delay = parseInt(el.dataset.delay || 0);
-                setTimeout(() => el.classList.add('animate'), delay);
-            });
-
-            // Show nav
-            const nav = document.getElementById('main-nav');
-            nav.style.transform = 'translateY(0)';
-
-            // Trigger hero section reveals
-            const heroReveals = document.querySelectorAll('#hero .reveal, #hero .reveal-right');
-            heroReveals.forEach(el => {
-                const delay = parseInt(el.dataset.delay || 0);
-                setTimeout(() => el.classList.add('visible'), delay + 200);
-            });
-
-            // Start counters
-            setTimeout(() => {
-                animateCounter('rating-counter', 0, 4.8, 1200, 1);
-                animateCounter('reviews-counter', 0, 2600, 1400, 0);
-            }, 800);
-        }
-
-        /* ── 3. COUNTER ANIMATION ── */
-        function animateCounter(id, start, end, duration, decimals) {
-            const el = document.getElementById(id);
-            if (!el) return;
-            const startTime = performance.now();
-            function tick(now) {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease out cubic
-                const ease = 1 - Math.pow(1 - progress, 3);
-                const value = start + (end - start) * ease;
-                el.textContent = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toLocaleString('es-PE');
-                if (progress < 1) requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
-        }
-
-        /* ── 4. SCROLL REVEAL (Intersection Observer) ── */
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = parseInt(entry.target.dataset.delay || 0);
-                    setTimeout(() => entry.target.classList.add('visible'), delay);
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-        // Observe all reveal elements (except hero ones, which are handled separately)
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-            if (!el.closest('#hero')) {
-                revealObserver.observe(el);
-            }
-        });
-
-        /* ── 5. PROOF LINE ANIMATION ── */
-        const proofLine = document.getElementById('proof-line');
-        if (proofLine) {
-            const lineObserver = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        proofLine.style.width = '6rem'; // w-24
-                        lineObserver.unobserve(entry.target);
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.5 });
-            lineObserver.observe(proofLine);
-        }
+            }, observerOptions);
 
-        /* ── 6. STAR PULSE ON SCROLL ── */
-        const starObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const stars = entry.target.querySelectorAll('.material-symbols-outlined');
-                    stars.forEach((star, i) => {
-                        setTimeout(() => star.classList.add('star-animate'), i * 120);
-                    });
-                    starObserver.unobserve(entry.target);
-                }
+            document.querySelectorAll('.reveal, .reveal-scale').forEach((element) => {
+                observer.observe(element);
             });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('.star-group').forEach(g => starObserver.observe(g));
-
-        /* ── 7. PARALLAX ON SCROLL ── */
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const scrollY = window.scrollY;
-                    document.querySelectorAll('.parallax-img').forEach(img => {
-                        const rect = img.getBoundingClientRect();
-                        const center = rect.top + rect.height / 2;
-                        const viewH = window.innerHeight;
-                        const offset = (center - viewH / 2) * 0.06;
-                        img.style.transform = `translateY(${offset}px) scale(1.05)`;
-                    });
-                    ticking = false;
-                });
-                ticking = true;
+        });
+        
+        // Keyframes for floatBob
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatBob {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
             }
-        });
-
-        /* ── 8. NAV HIDE/SHOW ON SCROLL ── */
-        let lastScrollY = 0;
-        const nav = document.getElementById('main-nav');
-        window.addEventListener('scroll', () => {
-            const currentY = window.scrollY;
-            if (currentY > lastScrollY && currentY > 200) {
-                nav.classList.add('nav-hidden');
-            } else {
-                nav.classList.remove('nav-hidden');
-            }
-            // Solid bg when scrolled
-            if (currentY > 50) {
-                nav.classList.add('bg-white/90');
-                nav.classList.remove('bg-white/60');
-            } else {
-                nav.classList.remove('bg-white/90');
-                nav.classList.add('bg-white/60');
-            }
-            lastScrollY = currentY;
-        });
-
-        /* ── 9. MAGNETIC BUTTON EFFECT ── */
-        document.querySelectorAll('.magnetic-btn').forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0, 0)';
-            });
-        });
-
-        /* ── 10. SMOOTH SCROLL FOR NAV LINKS ── */
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-    })();
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
