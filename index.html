@@ -138,6 +138,13 @@
             box-shadow: 0 10px 40px rgba(255, 59, 48, 0.1);
         }
 
+        /* List accents */
+        .menu-dot {
+            flex-grow: 1;
+            border-bottom: 2px dotted rgba(255,255,255,0.1);
+            margin: 0 10px;
+        }
+
     </style>
 </head>
 <body class="selection:bg-primary selection:text-white">
@@ -189,11 +196,9 @@
 
                 <div class="relative order-1 lg:order-2 reveal-scale h-full min-h-[400px]">
                     <div class="gallery-item w-full h-[500px] md:h-[700px] shadow-2xl shadow-primary/20">
-                        <!-- main hero image using img8 -->
                         <img class="w-full h-full object-cover" alt="Interior Don Filo" src="assets/img8.jpeg" />
                         <div class="absolute inset-0 gallery-overlay rounded-xl"></div>
                         
-                        <!-- Floating graphic -->
                         <div class="absolute bottom-8 left-8 md:-left-8 bg-black/60 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl animate-[floatBob_4s_ease-in-out_infinite]">
                             <p class="text-white font-headline text-2xl font-bold mb-1">Save Water</p>
                             <p class="text-secondary font-headline text-lg italic">Drink Beer.</p>
@@ -203,7 +208,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ AMBIENCE / NEW IMAGES ═══════════ -->
+        <!-- ═══════════ AMBIENCE ═══════════ -->
         <section id="ambiente" class="px-6 mb-32 max-w-screen-2xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl md:text-6xl font-headline font-bold uppercase tracking-tight mb-4 text-white">
@@ -212,10 +217,7 @@
                 <p class="text-zinc-400 max-w-2xl mx-auto text-lg">Un diseño pensado para que disfrutes cada bocado rodeado de buena vibra, luces de neón y arte.</p>
             </div>
 
-            <!-- Bento grid displaying the new images -->
             <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
-                
-                <!-- Main Image - Mural -->
                 <div class="gallery-item md:col-span-2 md:row-span-2 group reveal">
                     <img src="assets/img7.jpeg" alt="Mural botánico y luces cálidas" class="w-full h-full object-cover" />
                     <div class="absolute inset-0 gallery-overlay flex flex-col justify-end p-8">
@@ -224,7 +226,6 @@
                     </div>
                 </div>
 
-                <!-- Secondary 1 - Neon -->
                 <div class="gallery-item md:col-span-1 md:row-span-1 group reveal" style="animation-delay: 150ms;">
                     <img src="assets/img1.jpeg" alt="Letrero de neón" class="w-full h-full object-cover" />
                     <div class="absolute inset-0 gallery-overlay flex flex-col justify-end p-6">
@@ -232,60 +233,176 @@
                     </div>
                 </div>
 
-                <!-- Secondary 2 - Digital Menu -->
                 <div class="gallery-item md:col-span-1 md:row-span-1 group reveal" style="animation-delay: 300ms;">
                     <img src="assets/img12.jpeg" alt="Menú Digital Cholo Power" class="w-full h-full object-cover" />
                     <div class="absolute inset-0 gallery-overlay flex flex-col justify-end p-6">
                         <h3 class="font-headline font-bold text-xl text-white text-secondary">Atrévete a probarlo</h3>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ═══════════ LA CARTA (EXAMPLE DISHES) ═══════════ -->
+        <!-- ═══════════ LA CARTA (REAL CONTENT) ═══════════ -->
         <section id="menu" class="bg-surface py-32 px-6">
             <div class="max-w-screen-2xl mx-auto">
                 <div class="flex flex-col items-center text-center mb-16 reveal">
-                    <h2 class="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight text-white mb-4">Platos <span class="text-gradient">Estrella</span></h2>
-                    <p class="text-zinc-400 max-w-xl text-lg">Ejemplos de lo que hace a nuestra mesa una experiencia obligatoria.</p>
+                    <h2 class="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight text-white mb-4">Nuestra <span class="text-gradient">Carta</span></h2>
+                    <p class="text-zinc-400 max-w-xl text-lg">Sabor rudo, ingredientes de primera y ese toque arequipeño que nos hace únicos.</p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Food Item 1 -->
-                    <div class="glass-card p-6 reveal">
-                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6zA-tAclYBux7sH1DHDYGjJe6Rfu99LDn2rBonweckkUShGJtuxroyZUgOPEiXPHeVHBsMgFZfzsITS05gFQhnnJlNVD6OfU7-ofvSGk2buaHfip1yCQ8DPDZbHQqtikwL1uOEBvxXM-qtq46l4yRKVPe7w8YiM46mHgC2yjsbBZh3P0n5XheHFT7D3FIFDNIlaj5IejP9sdTDZLdfElZ5PQrtjqMnQrnqKLOncZXVoK7hrIhReCzQ071nbSBoAUt6JON5z9-zOmM" alt="Food ex 1" class="w-full h-full object-cover">
-                        </div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-headline font-bold text-xl text-white">Carbonara Especial</h3>
-                            <span class="text-primary font-bold">S/ 32</span>
-                        </div>
-                        <p class="text-zinc-400 text-sm">Receta artesanal, un sabor clásico traído a la mesa moderna.</p>
+                <!-- CATEGORY: BURGERS & CHICKEN -->
+                <div class="mb-24">
+                    <div class="flex items-center gap-4 mb-10 reveal">
+                        <h3 class="text-3xl font-headline font-extrabold text-white uppercase italic tracking-tighter">Hamburguesas & Pollo</h3>
+                        <div class="h-[2px] flex-grow bg-gradient-to-r from-primary to-transparent"></div>
                     </div>
 
-                    <!-- Food Item 2 -->
-                    <div class="glass-card p-6 reveal" style="animation-delay: 150ms;">
-                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApCXM2OofsxhesVc4r8xwOyan5uR5pLxUVeIpl_DerqfsqJb4XzjkuVrbRPrA3BaQq2Gw3k5lgab5-whBOu45pWcFQKmIZV6Rra40lkqLummlg2rMdD0uwf0FULrUKRKZ5ZqfaZiFsliGCjLVFrHiLi9ZWjzuGqV5QdqsidEY4Gg-wiSzLcfAGSjylCyMIZAEyNIbGhqE7fM_l-BlTptI311mmh_LlCewZxz2vXD7lOFq8L2Gk9MeIYSzzR71sckC68eJo3NT-h6dL" alt="Food ex 2" class="w-full h-full object-cover">
+                    <div class="grid lg:grid-cols-2 gap-10">
+                        <!-- Featured: Cholo Power -->
+                        <div class="gallery-item group reveal">
+                            <div class="h-80 relative overflow-hidden">
+                                <img src="assets/menu_cholo_power.png" alt="Cholo Power" class="w-full h-full object-cover">
+                                <div class="absolute top-4 right-4 bg-primary text-white font-bold px-4 py-1 rounded-full text-sm">INSIGNIA</div>
+                            </div>
+                            <div class="p-8 bg-card/80 backdrop-blur-md">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-2xl font-headline font-bold text-white">Cholo Power</h4>
+                                    <span class="text-2xl font-headline font-black text-primary">S/ 21.00</span>
+                                </div>
+                                <p class="text-zinc-400 mb-6">Filete de pollo, queso fundido, salchicha arequipeña, lechuga fresco, tomate y nuestras salsas secretas.</p>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-headline font-bold text-xl text-white">Pizza de la Casa</h3>
-                            <span class="text-primary font-bold">S/ 45</span>
+
+                        <!-- Featured: Extra Burger XL -->
+                        <div class="gallery-item group reveal" style="animation-delay: 150ms;">
+                            <div class="h-80 relative overflow-hidden">
+                                <img src="assets/menu_burger_xl.png" alt="Extra Burger XL" class="w-full h-full object-cover">
+                                <div class="absolute top-4 right-4 bg-secondary text-white font-bold px-4 py-1 rounded-full text-sm">PARA VALIENTES</div>
+                            </div>
+                            <div class="p-8 bg-card/80 backdrop-blur-md">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-2xl font-headline font-bold text-white">Extra Burger XL</h4>
+                                    <span class="text-2xl font-headline font-black text-secondary">S/ 28.00</span>
+                                </div>
+                                <p class="text-zinc-400 mb-6">Triple carne de 180g (540g total), tres quesos fundidos, tocino crujiente, lechuga y tomate.</p>
+                            </div>
                         </div>
-                        <p class="text-zinc-400 text-sm">Horno de leña y la fusión perfecta de quesos fundidos.</p>
+
+                        <!-- List Items -->
+                        <div class="lg:col-span-2 grid md:grid-cols-2 gap-x-12 gap-y-6 mt-4">
+                            <div class="flex items-center reveal" style="animation-delay: 200ms;">
+                                <span class="font-headline font-bold text-lg">Gran Barbecue</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 18.00</span>
+                            </div>
+                            <div class="flex items-center reveal" style="animation-delay: 250ms;">
+                                <span class="font-headline font-bold text-lg">Pollito Parrillero</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 18.00</span>
+                            </div>
+                            <div class="flex items-center reveal" style="animation-delay: 300ms;">
+                                <span class="font-headline font-bold text-lg">Hamburguesa Clásica</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 15.00</span>
+                            </div>
+                            <div class="flex items-center reveal" style="animation-delay: 350ms;">
+                                <span class="font-headline font-bold text-lg">Chicken Crispy</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 17.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORY: SALCHIPAPAS -->
+                <div class="mb-24">
+                    <div class="flex items-center gap-4 mb-10 reveal">
+                        <h3 class="text-3xl font-headline font-extrabold text-white uppercase italic tracking-tighter">Salchipapas</h3>
+                        <div class="h-[2px] flex-grow bg-gradient-to-r from-secondary to-transparent"></div>
                     </div>
 
-                    <!-- Food Item 3 -->
-                    <div class="glass-card p-6 reveal" style="animation-delay: 300ms;">
-                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYpjCApFAWGyVAGYlMvZp6KNsSvco20DXfHmXcjJc2TK8msvUY9OBSx76HdBo-cIjK4tQqR2llMIOIWNgY5j_FgDdBGjRtC8uaiScG6svZgHWZfVKfi_FEJ6hbVEcrrLN-BAZArrAJ0w0f3dMd1-fOPzOL3yqmgFV4LOMFmogOoIVYMlp2t6Ro3E4mfj81sL6w0Ni2ev6XbyWo46TYkCquT2FR3BawG-QHbU7NoaqzTW8b55K07dAZfhinprS-aIFOCzpPTptGklbe" alt="Food ex 3" class="w-full h-full object-cover">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                         <!-- Salchipapa Don Filo Featured -->
+                         <div class="lg:col-span-2 gallery-item group reveal">
+                            <div class="grid md:grid-cols-2">
+                                <div class="h-64 md:h-80">
+                                    <img src="assets/menu_salchipapa.png" alt="Salchipapa Don Filo" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-8 bg-card/80">
+                                    <h4 class="text-2xl font-headline font-bold text-white mb-2">Salchipapa Don Filo</h4>
+                                    <p class="text-zinc-400 text-sm mb-6 underline">La más completa de la casa</p>
+                                    <p class="text-zinc-400 mb-6">Frankfurt, chorizo premium, filete de pollo, cubitos de cerdo y papas doraditas.</p>
+                                    <div class="flex gap-4">
+                                        <div class="bg-white/5 border border-white/10 p-3 rounded-lg flex-1">
+                                            <span class="block text-[10px] uppercase text-zinc-500">Personal</span>
+                                            <span class="text-lg font-black text-secondary">S/ 26.00</span>
+                                        </div>
+                                        <div class="bg-white/5 border border-white/10 p-3 rounded-lg flex-1">
+                                            <span class="block text-[10px] uppercase text-zinc-500">Familiar</span>
+                                            <span class="text-lg font-black text-secondary">S/ 70.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+                         <div class="flex flex-col gap-4">
+                            <div class="glass-card p-6 reveal" style="animation-delay: 100ms;">
+                                <h4 class="font-headline font-bold text-lg text-white">Mistiana</h4>
+                                <p class="text-zinc-500 text-sm mb-4">Salchicha Frankfurt & Arequipeña</p>
+                                <span class="text-secondary font-black">S/ 17.00 / 48.00</span>
+                            </div>
+                            <div class="glass-card p-6 reveal" style="animation-delay: 200ms;">
+                                <h4 class="font-headline font-bold text-lg text-white">Salchi Alitas</h4>
+                                <p class="text-zinc-500 text-sm mb-4">Frankfurt + 6 Alitas al gusto</p>
+                                <span class="text-secondary font-black">S/ 23.00 / 65.00</span>
+                            </div>
+                            <div class="glass-card p-6 reveal" style="animation-delay: 300ms;">
+                                <h4 class="font-headline font-bold text-lg text-white">Salchi Pollo</h4>
+                                <p class="text-zinc-500 text-sm mb-4">Frankfurt + Filete de Pollo</p>
+                                <span class="text-secondary font-black">S/ 20.00 / 55.00</span>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORY: ALITAS & OTROS -->
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div class="reveal">
+                        <h3 class="text-3xl font-headline font-extrabold text-white uppercase italic tracking-tighter mb-8 italic">Alitas BBQ/Buffalo</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <span class="font-headline font-bold text-xl">Porción 12 Unidades</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-accent font-black">S/ 25.00</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-headline font-bold text-xl">Porción 24 Unidades</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-accent font-black">S/ 45.00</span>
+                            </div>
+                            <p class="text-zinc-500 text-sm italic">Salsas: Barbecue Ahumada, Teriyaki o Buffalo Picante.</p>
                         </div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-headline font-bold text-xl text-white">El Cholo Power</h3>
-                            <span class="text-primary font-bold">S/ 28</span>
+                    </div>
+                    <div class="reveal" style="animation-delay: 200ms;">
+                        <h3 class="text-3xl font-headline font-extrabold text-white uppercase italic tracking-tighter mb-8 italic">Especiales & Sándwiches</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="font-headline font-bold text-lg">Sándwich de Lomito Saltado</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 17.00</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-headline font-bold text-lg">Sándwich de Chicharrón</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 15.00</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-headline font-bold text-lg">Club Sandwich Filo</span>
+                                <div class="menu-dot"></div>
+                                <span class="text-primary font-black">S/ 22.00</span>
+                            </div>
                         </div>
-                        <p class="text-zinc-400 text-sm">Nuestro sándwich emblema, contundente y lleno de poder.</p>
                     </div>
                 </div>
             </div>
@@ -312,8 +429,8 @@
             </div>
             <div class="text-zinc-400 flex flex-col gap-2">
                 <h4 class="text-white font-headline font-bold mb-2 uppercase tracking-widest text-sm">Encuéntranos</h4>
-                <span class="text-sm">Av. Las Leyendas 123 (Ejemplo)</span>
-                <span class="text-sm">+51 987 654 321</span>
+                <span class="text-sm">Calle Puente Grau 300, Arequipa</span>
+                <span class="text-sm">+51 938 807 852</span>
                 <div class="flex justify-center md:justify-start gap-4 mt-4">
                     <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white">
                         IG
@@ -331,7 +448,6 @@
 
     <!-- ═══════════ SCRIPTS ═══════════ -->
     <script>
-        // Simple Intersection Observer setup for reveal animations
         document.addEventListener("DOMContentLoaded", () => {
             const observerOptions = {
                 root: null,
@@ -353,7 +469,6 @@
             });
         });
         
-        // Keyframes for floatBob
         const style = document.createElement('style');
         style.textContent = `
             @keyframes floatBob {
