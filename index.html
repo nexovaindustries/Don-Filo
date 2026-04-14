@@ -38,58 +38,138 @@
         /* Base Dark Theme overrides */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
+            background-color: #050505; /* Deeper black */
             color: #ffffff;
             overflow-x: hidden;
             letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Nav Glassmorphism */
+        /* ─────── PREMIUM NOISE OVERLAY ─────── */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* ─────── NAVIGATION ─────── */
         .glass-nav {
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Typography accents */
+        /* ─────── TYPOGRAPHY ─────── */
         .text-gradient {
-            background: linear-gradient(135deg, #ff3b30 0%, #ff9500 100%);
+            background: linear-gradient(135deg, #ff3b30 0%, #ff9500 50%, #ff3b30 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shine 4s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* Buttons & Hover Effects */
+        /* ─────── COMPONENTS ─────── */
         .btn-neon {
             position: relative;
             background: #ff3b30;
             color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255, 59, 48, 0.4);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .btn-neon:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 59, 48, 0.7);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
         }
-        .btn-neon::after {
+        .btn-neon::before {
             content: '';
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
         }
-        .btn-neon:hover::after {
+        .btn-neon:hover::before {
             left: 100%;
         }
 
-        /* Smooth reveal animations */
+        /* Float WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 12px 24px rgba(37, 211, 102, 0.4);
+            position: relative;
+        }
+        .whatsapp-icon::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            background: #25d366;
+            z-index: -1;
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); opacity: 0.7; }
+            70% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .whatsapp-tooltip {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* ─────── MOTION & LAYOUT ─────── */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.visible {
             opacity: 1;
@@ -98,44 +178,45 @@
         
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: scale(0.9) translateY(20px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-scale.visible {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) translateY(0);
         }
 
-        /* Gallery Cards */
-        .gallery-item {
-            border-radius: 1rem;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .gallery-item img {
-            transition: transform 0.7s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-        .gallery-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-        }
+        /* Staggered Delay Utilities */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
 
-        /* Glass Cards */
+        /* Gallery/Cards */
         .glass-card {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 59, 48, 0.3);
-            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.1);
+            transform: translateY(-8px) scale(1.01);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 59, 48, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Spotlight Effect Background */
+        .spotlight {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 59, 48, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(80px);
         }
 
         /* List accents */
@@ -147,7 +228,13 @@
 
     </style>
 </head>
-<body class="selection:bg-primary selection:text-white">
+<body class="selection:bg-primary selection:text-white bg-[#050505]">
+    <div class="noise-overlay"></div>
+    
+    <!-- Decorative Spotlights -->
+    <div class="spotlight top-[-200px] left-[-200px] opacity-50"></div>
+    <div class="spotlight top-[40%] right-[-300px] opacity-30"></div>
+    <div class="spotlight bottom-[-200px] left-[20%] opacity-40"></div>
 
     <!-- ═══════════ NAVIGATION ═══════════ -->
     <nav id="main-nav" class="fixed top-0 w-full z-50 glass-nav transition-all duration-300 py-4 px-6 md:px-12">
@@ -449,39 +536,92 @@
         </div>
     </footer>
 
+    <!-- ═══════════ FLOATING WHATSAPP ═══════════ -->
+    <a href="https://wa.me/51958114856?text=%C2%A1Hola%20Don%20Filo!%20Vengo%20de%20la%20web%20y%20tengo%20filo%2C%20quiero%20hacer%20un%20pedido." 
+       target="_blank" 
+       class="whatsapp-float reveal" 
+       title="WhatsApp">
+        <div class="whatsapp-tooltip font-headline">¿Tienes filo? Escríbenos</div>
+        <div class="whatsapp-icon shadow-lg rotate-hover">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+    </a>
+
     <!-- ═══════════ SCRIPTS ═══════════ -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // --- Advanced Intersection Observer ---
             const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        // Adding staggered delay based on elements currently in view
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100); 
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.reveal, .reveal-scale').forEach((element) => {
-                observer.observe(element);
+            document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => observer.observe(el));
+
+            // --- Magnetic Effect for Buttons ---
+            const magneticButtons = document.querySelectorAll('.btn-neon, .whatsapp-icon');
+            magneticButtons.forEach(btn => {
+                btn.onmousemove = function(e) {
+                    const x = e.pageX - btn.offsetLeft;
+                    const y = e.pageY - btn.offsetTop;
+                    btn.style.setProperty('--x', x + 'px');
+                    btn.style.setProperty('--y', y + 'px');
+                    
+                    const rect = btn.getBoundingClientRect();
+                    const xc = rect.left + rect.width / 2;
+                    const yc = rect.top + rect.height / 2;
+                    const dx = e.clientX - xc;
+                    const dy = e.clientY - yc;
+                    
+                    btn.style.transform = `translate(${dx * 0.2}px, ${dy * 0.2}px)`;
+                };
+                btn.onmouseleave = function() {
+                    btn.style.transform = `translate(0px, 0px)`;
+                };
             });
 
-            // Smooth scroll for internal links
+            // --- Smooth scroll for internal links ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
+            });
+
+            // --- Scroll Logic for Nav ---
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('main-nav');
+                if (nav) {
+                    if (window.scrollY > 50) {
+                        nav.classList.add('py-2');
+                        nav.classList.remove('py-4');
+                    } else {
+                        nav.classList.add('py-4');
+                        nav.classList.remove('py-2');
+                    }
+                }
             });
         });
         
+        // --- Keyframes ---
         const style = document.createElement('style');
         style.textContent = `
             @keyframes floatBob {
